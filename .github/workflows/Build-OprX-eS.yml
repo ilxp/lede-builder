@@ -39,7 +39,7 @@ jobs:
         if [ "${{ matrix.model }}" = "nanopi-r5s" ]; then
           echo "kmod_repo=kmod-aarch64" >> "$GITHUB_ENV"
         elif [ "${{ matrix.model }}" = "x86_64" ]; then
-          echo "kmod_repo=lede-kmod-x86_64" >> "$GITHUB_ENV"
+          echo "kmod_repo=eS-kmod-x86_64" >> "$GITHUB_ENV"
         elif [ "${{ matrix.model }}" = "netgear_r8500" ]; then
           echo "kmod_repo=kmod-bcm53xx" >> "$GITHUB_ENV"
         elif [ "${{ matrix.model }}" = "armv8" ]; then
@@ -81,7 +81,7 @@ jobs:
       run: |
         #export KERNEL_CLANG_LTO=y BUILD_FAST=y ENABLE_BPF=y ENABLE_LTO=y ENABLE_LRNG=y USE_GCC15=y USE_MOLD=y
         #bash <(curl -sS ${{ secrets.script_url_general }}) ${{ matrix.tag.type }} ${{ matrix.model }}
-        bash <(curl -sS ${{ secrets.script_url_lede }}) ${{ matrix.tag.type }} ${{ matrix.model }}
+        bash <(curl -sS ${{ secrets.script_url_eS }}) ${{ matrix.tag.type }} ${{ matrix.model }}
         build_date=$(date "+%Y-%m-%d")
         echo "build_date=$build_date" >> $GITHUB_ENV
     
@@ -148,7 +148,7 @@ jobs:
       with:
         #name: OpenWrt-${{ env.latest_release }}
         #name: ${{ matrix.target.arch }}-${{ matrix.target.kernel }}
-        name: lede-snapshots
+        name: OprX-Release
         allowUpdates: true
         #tag: ${{ env.latest_release }}
         tag: ${{ matrix.target.arch }}
@@ -165,7 +165,7 @@ jobs:
       with:
         #name: OprX-${{ env.latest_release }}
         #name: ${{ matrix.target.arch }}-${{ matrix.target.kernel }}
-        name: lede-snapshots
+        name: OprX-Release
         allowUpdates: true
         #tag: ${{ env.latest_release }}
         tag: ${{ matrix.target.arch }}
@@ -197,7 +197,7 @@ jobs:
       with:
         #name: OprX-eS${{ env.latest_release }}
         #name: ${{ matrix.target.arch }}-${{ matrix.target.kernel }}
-        name: lede-snapshots
+        name: OprX-Release
         allowUpdates: true
         #tag: ${{ env.latest_release }}
         tag: ${{ matrix.target.arch }}
