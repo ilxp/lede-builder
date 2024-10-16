@@ -124,7 +124,7 @@ jobs:
           cd rom && sha256sum * > ../info/sha256sums.txt
         fi
         cd ..
-        tar zcf rom/buildinfo_${{ matrix.model }}.tar.gz info
+        tar zcf rom/eS_buildinfo_${{ matrix.model }}.tar.gz info
 
     #- name: Upload artifacts
      # uses: actions/upload-artifact@v4
