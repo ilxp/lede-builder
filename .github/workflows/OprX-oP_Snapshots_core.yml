@@ -94,5 +94,5 @@ jobs:
       uses: peter-evans/repository-dispatch@v3
       with:
         token: ${{ secrets.workflow_token }}
-        repository: ilxp/openwrt_core
+        repository: ilxp/oprx_core
         event-type: sync
