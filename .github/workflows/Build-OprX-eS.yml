@@ -150,7 +150,7 @@ jobs:
         name: Firmware-Snapshots
         allowUpdates: true
         #tag: ${{ env.latest_release }}
-        tag: ${{ matrix.target.arch }}
+        tag: firmware
         commit: main # 这里必须更改为你仓库的实际分支名称否则固件编译后无法发布到 releases，如：main、master
         replacesArtifacts: true
         token: ${{ secrets.workflow_token }}
@@ -199,7 +199,7 @@ jobs:
         name: Firmware-Snapshots
         allowUpdates: true
         #tag: ${{ env.latest_release }}
-        tag: ${{ matrix.target.arch }}
+        tag: firmware
         commit: main  # 这里必须更改为你仓库的实际分支名称否则固件编译后无法发布到 releases，如：main、master
         replacesArtifacts: true
         token: ${{ secrets.workflow_token }}
