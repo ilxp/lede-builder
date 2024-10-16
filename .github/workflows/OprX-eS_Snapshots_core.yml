@@ -1,4 +1,4 @@
-name: Build SNAPSHOT Core
+name: Build Lede-Snapshots Core
 
 on:
   workflow_dispatch:
@@ -59,9 +59,9 @@ jobs:
         git_password: ${{ secrets.ftp_password }}
       run: |
         [ "${{ matrix.model }}" != "netgear_r8500" ] && export KERNEL_CLANG_LTO=y
-        export BUILD_FAST=y ENABLE_OTA=y ENABLE_BPF=y ENABLE_LTO=y ENABLE_LRNG=y USE_GCC15=y ENABLE_MOLD=y MINIMAL_BUILD=y
+        #export BUILD_FAST=y ENABLE_OTA=y ENABLE_BPF=y ENABLE_LTO=y ENABLE_LRNG=y USE_GCC15=y ENABLE_MOLD=y MINIMAL_BUILD=y
         #bash <(curl -sS ${{ secrets.script_url_general }}) ${{ matrix.tag.type }} ${{ matrix.model }}
-        bash <(curl -sS ${{ secrets.script_url_oP }}) ${{ matrix.tag.type }} ${{ matrix.model }}
+        bash <(curl -sS ${{ secrets.script_url_eS }}) ${{ matrix.tag.type }} ${{ matrix.model }}
         
     - name: Extensive logs after a failed compilation
       if: steps.compile.outcome == 'failure'
@@ -94,5 +94,5 @@ jobs:
       uses: peter-evans/repository-dispatch@v3
       with:
         token: ${{ secrets.workflow_token }}
-        repository: ilxp/oprx_core
+        repository: ilxp/lede_core
         event-type: sync
