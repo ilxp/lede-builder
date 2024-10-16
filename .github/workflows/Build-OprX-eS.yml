@@ -1,5 +1,4 @@
 name: Build OprX-eS
-
 on:
   workflow_dispatch:
  
@@ -148,7 +147,7 @@ jobs:
       with:
         #name: OpenWrt-${{ env.latest_release }}
         #name: ${{ matrix.target.arch }}-${{ matrix.target.kernel }}
-        name: OprX-Release
+        name: Firmware-Snapshots
         allowUpdates: true
         #tag: ${{ env.latest_release }}
         tag: ${{ matrix.target.arch }}
@@ -165,10 +164,10 @@ jobs:
       with:
         #name: OprX-${{ env.latest_release }}
         #name: ${{ matrix.target.arch }}-${{ matrix.target.kernel }}
-        name: OprX-Release
+        name: Kmod-Snapshots
         allowUpdates: true
         #tag: ${{ env.latest_release }}
-        tag: ${{ matrix.target.arch }}
+        tag: kmod
         commit: main
         replacesArtifacts: true
         token: ${{ secrets.workflow_token }}
@@ -180,7 +179,7 @@ jobs:
       uses: peter-evans/repository-dispatch@v3
       with:
         token: ${{ secrets.workflow_token }}
-        repository: ilxp/${{ env.kmod_repo }}
+        repository: ilxp/lede_core
         event-type: sync
         
     #- name: Release OTA
@@ -197,7 +196,7 @@ jobs:
       with:
         #name: OprX-eS${{ env.latest_release }}
         #name: ${{ matrix.target.arch }}-${{ matrix.target.kernel }}
-        name: OprX-Release
+        name: Firmware-Snapshots
         allowUpdates: true
         #tag: ${{ env.latest_release }}
         tag: ${{ matrix.target.arch }}
